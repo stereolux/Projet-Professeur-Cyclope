@@ -1,0 +1,24 @@
+{
+  "name": "banditManchot",
+  "version": "0.0.1",
+  "description": "App for the bandit manchot of professeur cyclope",
+  "main": "index.html",
+  "scripts": {
+    "start": "nodewebkit"
+  },
+  "author": "Xavier Seignard <xavier.seignard@gmail.com>",
+  "license": "MIT",
+  "window": {
+    "toolbar": false,
+    "frame": false,
+    "fullscreen": true,
+    "height": 800,
+    "width": 1200
+  },
+  "dependencies": {
+    "jquery": "^2.1.1",
+    "nodewebkit": "^0.8.6-2",
+    "serialport": "^1.4.0",
+    "thermalprinter": "0.0.5"
+  }
+}

@@ -1,0 +1,117 @@
+body{
+	margin: 0;
+	overflow: hidden;
+}
+#container {
+	position: relative;
+	width: 100%;
+	margin: 0;
+	padding: 0;overflow: auto;
+}
+#banditCadre {
+	background: red;
+	position: absolute;
+	top:50%;
+	width: 90%;
+	margin: auto 5%;
+	background:  no-repeat center top;
+	background-size: 100% auto;
+	background-image:url(../img/BanditCadre.png);
+}
+#colone1{
+	background-image:url(../img/bg_colone1.png);
+	-webkit-transition: background-position 2s ease-out;
+	transition: background-position 2s ease-out;
+}
+#colone2{
+	background-image:url(../img/bg_colone2.png);
+	-webkit-transition: background-position 4s ease-out;
+	transition: background-position 4s ease-out;
+}
+#colone3{
+	background-image:url(../img/bg_colone3.png);
+	-webkit-transition: background-position 6s ease-out;
+	transition: background-position 6s ease-out;
+}
+#colone4{
+	background-image:url(../img/bg_colone4.png);
+	-webkit-transition: background-position 7s ease-out;
+	transition: background-position 7s ease-out;
+}
+#ombre {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: transparent no-repeat;
+	background-size: 100% 100%;
+	background-image:url(../img/ombre.png);
+}
+#bouton {
+	position: absolute;
+	height: 10%;
+	background: transparent no-repeat top left;
+	background-size: 100% auto;
+}
+#zoneTap {
+	position: absolute;
+	top: 32%;
+	left: 15%;
+	right: 15%;
+	height: 55%;
+	z-index: 10;
+}
+#container_cols {
+	position: relative;
+	width: 69%;
+	margin: 21.8% auto 0 auto;
+}
+.colone {
+	float: left;
+	height: 345px;
+	width: 23%;
+	margin: 0 1%;
+	background: transparent repeat-y 0 0 ;
+	background-size: 100% auto;
+}
+#bouton {
+	background-image:url(../img/bouton.gif);
+	top: 75.35%;
+	width: 3.8%;
+	left: 47.715%;
+}
+#spider {
+	position: absolute;
+	left: 64.2%;
+	top: 85%;
+	width: 6%;
+	height: 15%;
+	background:  no-repeat;
+	background-size: 100% auto;
+	background-image:url(../img/spider.png);
+}
+.anim_spider{
+	-webkit-transition-timing-function: linear;
+	transition-timing-function: linear;
+
+	-webkit-transform-origin: 50% 0%;
+	-ms-transform-origin: 50% 0%;
+	transform-origin: 50% 0%;
+
+	-webkit-animation: anim_bm_spider 5s infinite;
+	animation: anim_bm_spider 5s infinite;
+}
+
+@-webkit-keyframes anim_bm_spider {
+	from { -webkit-transform: rotate(-8deg); }
+	50% { -webkit-transform: rotate(8deg); }
+	to { -webkit-transform: rotate(-8deg); }
+}
+
+@keyframes anim_bm_spider {
+	from { transform: rotate(8deg); }
+	50% { transform: rotate(-8deg); }
+	to { transform: rotate(8deg); }
+}
