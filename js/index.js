@@ -19,19 +19,19 @@ numImg.col4 = 0;
 
 // serial port used
 var port = os.platform() === 'linux' ? '/dev/ttyUSB0' : '/dev/tty.usbserial';
-var serialPort = new SerialPort(port, {
+var printerPort = new SerialPort(port, {
 	baudrate: 19200
 });
 
 // init printer
-serialPort.on('open',function() {
+printerPort.on('open',function() {
 	var opts = {
 		maxPrintingDots: 15,
 		heatingTime: 150,
-		heatingInterval: 4,
-		commandDelay: 5
+		heatingInterval: 2,
+		commandDelay: 3
 	};
-	printer = new Printer(serialPort, opts);
+	printer = new Printer(printerPort, opts);
 	printer.on('ready', function() {
 		canPrint = true;
 	});
