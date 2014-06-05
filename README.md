@@ -1,13 +1,21 @@
+# Bandit Manchot
+
+## How to build
+
+Install dependencies and make them compatible with node-webkit and then build the app.
+
+On linux :
+
 ```
-sudo npm i node-pre-gyp nw-gyp -g
-npm i
-cd node_modules/serialport
-node-pre-gyp rebuild --runtime=node-webkit --target=0.8.6
-cd ../thermalprinter/node_modules/canvas
-nw-gyp configure --target=0.8.6
-nw-gyp build
-cd ../sleep
-nw-gyp configure --target=0.8.6
-nw-gyp build
-cd ../../../.. 
+make linux-dep
+grunt
 ```
+
+On mac:
+
+```
+make linux-dep
+grunt
+```
+
+This will create a folder called `webkitbuilds/releases` where linux 64, mac and windows builds are.

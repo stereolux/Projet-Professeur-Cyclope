@@ -1,8 +1,6 @@
 var SerialPort = require('serialport').SerialPort,
-	serialPort = new SerialPort('/dev/ttyUSB0', {
-		baudrate: 19200
-	}),
 	Printer = require('thermalprinter'),
+	os = require('os'),
 	$ = require('jquery'),
 	path = require('path'),
 	cwd = path.dirname(process.execPath) + '/../../../img/cases/',
@@ -18,6 +16,12 @@ numImg.col1 = 0;
 numImg.col2 = 0;
 numImg.col3 = 0;
 numImg.col4 = 0;
+
+// serial port used
+var port = os.platform() === 'linux' ? '/dev/ttyUSB0' : '/dev/tty.usbserial';
+var serialPort = new SerialPort(port, {
+	baudrate: 19200
+});
 
 // init printer
 serialPort.on('open',function() {
