@@ -3,7 +3,7 @@ var SerialPort = require('serialport').SerialPort,
 	os = require('os'),
 	$ = require('jquery'),
 	path = require('path'),
-	cwd = path.dirname(process.execPath) + '/../../../img/cases/',
+	cwd = path.join(path.dirname(window.location.pathname), '/img/cases/'),
 	j = 0,
 	cpt = [0,0,0,0,0],
 	bgp = [0,0,0,0,0],
@@ -95,3 +95,5 @@ document.getElementById('zoneTap').addEventListener('click', function (e) {
 
 $(window).resize(resize);
 resize();
+
+console.log(cwd);
