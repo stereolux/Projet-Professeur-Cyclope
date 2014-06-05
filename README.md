@@ -18,4 +18,4 @@ make linux-dep
 grunt
 ```
 
-This will create a folder called `webkitbuilds/releases` where linux 64, mac and windows builds are.
+This will create a folder called `webkitbuilds/releases` where linux 64 and mac builds are.

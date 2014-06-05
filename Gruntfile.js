@@ -7,7 +7,7 @@ module.exports = function (grunt) {
 				build_dir: './webkitbuilds',
 				version: '0.8.6',
 				mac: true,
-				win: true,
+				win: false,
 				linux32: false,
 				linux64: true
 			},
