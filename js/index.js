@@ -1,4 +1,5 @@
 var SerialPort = require('serialport').SerialPort,
+	five = require('johnny-five'),
 	Printer = require('thermalprinter'),
 	os = require('os'),
 	$ = require('jquery'),
@@ -9,7 +10,10 @@ var SerialPort = require('serialport').SerialPort,
 	bgp = [0,0,0,0,0],
 	numImg = {},
 	printer,
-	canPrint = false;
+	canPrint = false,
+	board = new five.Board({
+		port: '/dev/ttyACM0'
+	});
 
 // init stored images for each column
 numImg.col1 = 0;
@@ -17,7 +21,7 @@ numImg.col2 = 0;
 numImg.col3 = 0;
 numImg.col4 = 0;
 
-// serial port used
+// serial port used for the printer (mac or linux)
 var port = os.platform() === 'linux' ? '/dev/ttyUSB0' : '/dev/tty.usbserial';
 var serialPort = new SerialPort(port, {
 	baudrate: 19200
@@ -38,6 +42,21 @@ serialPort.on('open',function() {
 });
 
 
+// init arduino
+board.on('ready', function() {
+	new five.Led(11).pulse(2000);
+	var button = new five.Button({
+		pin: 2,
+		isPullup: true
+	});
+	button.on('down', function() {
+		if (canPrint) {
+			canPrint = false;
+			mix();
+		}
+	});
+});
+
 var resize = function() {
 	var HauteurW = window.innerHeight + 'px';
 	$('#container').css('height', HauteurW);
@@ -56,7 +75,7 @@ var resize = function() {
 	$('#bouton').css('top', topBT + 'px');
 };
 
-var mix = function(){
+var mix = function() {
 	j++;
 	if (j>=5) {
 		cpt = [0,0,0,0,0];
@@ -85,15 +104,5 @@ var mix = function(){
 		});
 };
 
-document.getElementById('zoneTap').addEventListener('click', function (e) {
-	if (canPrint) {
-		canPrint = false;
-		mix();
-	}
-	e.stopPropagation();
-}, false);
-
 $(window).resize(resize);
 resize();
-
-console.log(cwd);
