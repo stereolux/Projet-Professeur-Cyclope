@@ -6,6 +6,7 @@ module.exports = function (grunt) {
 			options: {
 				build_dir: './webkitbuilds',
 				version: '0.8.6',
+				mac_icns: './img/banditManchot.icns',
 				mac: true,
 				win: false,
 				linux32: false,
