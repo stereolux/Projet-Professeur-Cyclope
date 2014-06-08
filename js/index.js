@@ -41,7 +41,6 @@ printerPort.on('open',function() {
 	});
 });
 
-
 // init arduino
 board.on('ready', function() {
 	new five.Led(11).pulse(2000);
