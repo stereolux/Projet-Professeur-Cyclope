@@ -45,7 +45,7 @@ printerPort.on('open',function() {
 board.on('ready', function() {
 	new five.Led(11).pulse(2000);
 	var button = new five.Button({
-		pin: 2,
+		pin: 5,
 		isPullup: true
 	});
 	button.on('down', function() {
